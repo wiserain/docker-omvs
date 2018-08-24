@@ -13,7 +13,7 @@ docker run -it \
 	wiserain/omvs
 ```
 
-Then, give a omvs command.
+Then, give your own omvs command inside running container.
 
 ```bash
 omvs -i 0 -j 2 <ip1> <ip2> ...
