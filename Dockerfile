@@ -10,9 +10,7 @@ RUN \
  	gst-plugins-good \
  	gst-plugins-bad \
  	gst-plugins-ugly \
- 	gst-libav
-
-RUN \
+ 	gst-libav && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache \
  	libpcap \
@@ -20,20 +18,14 @@ RUN \
  	gst-plugins-good \
  	gst-plugins-bad \
  	gst-plugins-ugly \
- 	gst-libav
-
-RUN \
+ 	gst-libav && \
  echo "**** clone source ****" && \
- git clone https://bitbucket.org/ohhara/ohmulticastvideoscanner.git /tmp/ohmulticastvideoscanner
-
-RUN \
+ git clone https://bitbucket.org/ohhara/ohmulticastvideoscanner.git /tmp/ohmulticastvideoscanner && \
  echo "**** build and install omvs ****" && \
  cd /tmp/ohmulticastvideoscanner && \
  ./configure && \
  make && \
- make install
-
-RUN \
+ make install && \
  echo "***** cleanup ****" && \
  apk del --purge \
 	build-dependencies && \
