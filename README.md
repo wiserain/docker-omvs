@@ -22,5 +22,5 @@ omvs -i 0 -j 2 <ip1> <ip2> ...
 As permission handling is not implemented, you shoud change the ownership of ```omvs_out``` folder manually by
 
 ```bash
-sudo chown ${USER:=$(/usr/bin/id -run)}:$USER /omvs
+sudo chown ${USER:=$(/usr/bin/id -run)}:$USER ${PWD}/omvs_out
 ```
