@@ -21,6 +21,7 @@ RUN \
 
 FROM alpine:3.12
 LABEL maintainer="wiserain"
+LABEL org.opencontainers.image.source https://github.com/wiserain/docker-omvs
 
 RUN \
  echo "**** install runtime packages ****" && \
