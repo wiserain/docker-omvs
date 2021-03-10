@@ -1,4 +1,4 @@
-FROM alpine:3.12 as builder
+FROM alpine:3.13 as builder
 
 RUN \
  echo "**** install build packages ****" && \
@@ -19,7 +19,7 @@ RUN \
  make && \
  make DESTDIR=/tmp/omvs-build install
 
-FROM alpine:3.12
+FROM alpine:3.13
 LABEL maintainer="wiserain"
 LABEL org.opencontainers.image.source https://github.com/wiserain/docker-omvs
 
