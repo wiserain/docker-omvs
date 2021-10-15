@@ -38,5 +38,25 @@ RUN \
 	/tmp/*
 
 COPY --from=builder /tmp/omvs-build/usr/ /usr/
+COPY scripts /scripts
+RUN chmod u+x /scripts/start.sh
+
+RUN addgroup \
+ --gid 911 \
+ appuser
+RUN adduser \
+ --disabled-password \
+ --no-create-home \
+ --uid 911 \
+ --ingroup appuser \
+ appuser
+#USER appuser:appuser
+
+ENV \
+  PUID= \
+  PGID=
 
 VOLUME /omvs_out
+VOLUME /config
+
+ENTRYPOINT ["/scripts/start.sh"]
