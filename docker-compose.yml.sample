@@ -1,0 +1,17 @@
+---
+version: "2"
+
+services:
+  omvs:
+    build:
+      context: docker-omvs
+      dockerfile: Dockerfile
+    container_name: iptv-scanner
+    network_mode: bridge
+    volumes:
+      - /path/to/appdata/omvs_out:/omvs_out
+      - /path/to/appdata/config:/config
+    environment:
+      PUID: 1000 # optional
+      PGID: 100  # optional
+    mem_limit: 128M
