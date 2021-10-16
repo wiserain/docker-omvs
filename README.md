@@ -2,7 +2,36 @@
 
 Docker images for running [ohhara's OhMulticastVideoScanner](http://ohhara.sarang.net/omvs/).
 
-## Usage
+## TODOs
+
+  - [x] Automate post-processing the ownership of output directory(`omvs_out`)
+  - [ ] Restructure project for simple download-and-run
+  - [ ] Implement environment variables for passing options to `omvs` executable
+
+## Using docker-compose
+
+In order to build docker image, `docker-compose.yml` should be placed one-level above docker-omvs repository.
+Before running `docker-compose`, please make `config` directory next to `docker-compose.yml` and copy/paste `IPTV_ADDRESS` into `config`.
+
+Otherwise you can modify `docker-compose.yml` to suit your need.
+
+``` 
+cp docker-compose.yml.sample ../docker-compose.yml
+
+cd ../
+
+docker-compose build
+docker-compose up --no-start
+docker-compose start
+```
+
+Or you can just run `docker-compose` with just the following one:
+
+```
+docker-compose up -d
+```
+
+## Using docker run
 
 First, run your container.
 
